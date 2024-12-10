@@ -1,3 +1,4 @@
+import org.example.Fatura;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,6 +9,6 @@ public class FaturaTest {
     @Test
     public void test01(){
         Fatura fatura = new Fatura("Joao Silva", 1500.0, "2020-02-17" );
-        assertEquals("PENDENTE", fatura.getEstado(), "faturas sao PENDENTES ate que sejem pagas!");
+        assertEquals(fatura.getEstado(), "PENDENTE");
     }
 }
