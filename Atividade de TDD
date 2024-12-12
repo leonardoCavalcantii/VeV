@@ -1,0 +1,2 @@
+As implementações a seguir utilizam o gerenciador de dependências e construção Maven para organizar as 
+bibliotecas necessárias e estruturar o esqueleto do sistema além de facilitar a construção dos testes.
