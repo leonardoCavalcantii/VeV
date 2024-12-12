@@ -9,6 +9,6 @@ public class FaturaTest {
     @Test
     public void test01(){
         Fatura fatura = new Fatura("Joao Silva", 1500.0, "2020-02-17" );
-        assertEquals(fatura.getEstado(), "PENDENTE");
+        assertEquals("PENDENTE", fatura.getEstado());
     }
 }
