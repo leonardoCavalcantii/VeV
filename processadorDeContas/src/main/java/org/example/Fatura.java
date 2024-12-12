@@ -1,18 +1,33 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class Fatura {
     private String cliente;
     private double valor;
     private LocalDate data;
     private String estado;
+    private List<Pagamento> pagamentos;
 
     public Fatura(String cliente, double valor, String data) {
         this.cliente = cliente;
         this.valor = valor;
         this.data = LocalDate.parse(data);
         this.estado = "PENDENTE";
+        this.pagamentos = new ArrayList<>();
+    }
+
+    public void adicionarPagamento(Pagamento pagamento) {
+        pagamentos.add(pagamento);
+    }
+
+    //ok!
+    public double getSomaPagamentos() {
+        return pagamentos.stream().mapToDouble(Pagamento::getValor).sum();
     }
 
     public String getCliente() {
@@ -29,8 +44,9 @@ public class Fatura {
 
     public String getEstado() {
         return estado;
+
+
     }
 }
-
 
 

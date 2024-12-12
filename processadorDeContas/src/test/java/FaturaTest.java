@@ -22,7 +22,7 @@ public class FaturaTest {
 
     @Test
     public void testeAdicionarPagamento() {
-        Fatura fatura = new Fatura("Joao Silva", 1500.0, "2025-01-01");
+        Fatura fatura = new Fatura("Joao Silva", 1100.0, "2025-01-01");
         Pagamento pagamento1 = new Pagamento(500.0, "2024-12-31", "Boleto");
         Pagamento pagamento2 = new Pagamento(600.0, "2024-12-30", "CARTAO");
 
