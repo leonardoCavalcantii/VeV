@@ -20,6 +20,11 @@ public class Fatura {
     }
 
     public void adicionarPagamento(Pagamento pagamento) {
+        if(pagamento.getTipo().equals("BOLETO")){
+            if(pagamento.getValor() < 0.01 || pagamento.getValor() > 5000.0){
+                return;
+            }
+        }
         pagamentos.add(pagamento);
     }
 
