@@ -22,6 +22,10 @@ public class Lote {
     }
 
     public double calcularPrecoFinal(String tipo, double preco) {
+        if (tipo == null || preco < 0) {
+            throw new IllegalArgumentException("Tipo de ingresso ou preço inválido");
+        }
+
         if ("MEIA_ENTRADA".equals(tipo)) {
             return preco; //Não tem desconto para meia
         }
