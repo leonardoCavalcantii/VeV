@@ -21,8 +21,25 @@ public class IngressoTest {
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             ingresso.marcarComoVendido();
         });
-
         assertEquals("já está como vendido", exception.getMessage());
     }
-    
+
+    @Test
+    void ingressoTipoNormal() {
+        ingresso = new Ingresso(1, "NORMAL", "DISPONIVEL");
+        assertEquals("NORMAL", ingresso.getTipo());
+    }
+
+    @Test
+    void ingressoTipoVip() {
+        ingresso = new Ingresso(1, "VIP", "DISPONIVEL");
+        assertEquals("VIP", ingresso.getTipo());
+    }
+
+    @Test
+    void ingressoTipoMeia() {
+        ingresso = new Ingresso(1, "MEIA_ENTRADA", "DISPONIVEL");
+        assertEquals("MEIA_ENTRADA", ingresso.getTipo());
+    }
+
 }
