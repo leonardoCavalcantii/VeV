@@ -2,8 +2,6 @@ package org.example;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Fatura {
@@ -46,6 +44,10 @@ public class Fatura {
         return estado;
 
 
+    }
+
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
     }
 }
 
