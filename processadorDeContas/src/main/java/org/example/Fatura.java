@@ -20,9 +20,14 @@ public class Fatura {
     }
 
     public void adicionarPagamento(Pagamento pagamento) {
-        if(pagamento.getTipo().equals("BOLETO")){
-            if(pagamento.getValor() < 0.01 || pagamento.getValor() > 5000.0){
+        if (pagamento.getTipo().equals("BOLETO")) {
+            //valores limites do boleto
+            if (pagamento.getValor() < 0.01 || pagamento.getValor() > 5000.0) {
                 return;
+            }
+            //boleto com atraso
+            if(pagamento.getData().isAfter(data)){
+                pagamento.setValor(pagamento.getValor()*1.10);
             }
         }
         pagamentos.add(pagamento);

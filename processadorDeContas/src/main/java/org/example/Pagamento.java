@@ -24,4 +24,8 @@ public class Pagamento {
     public String getTipo() {
         return tipo;
     }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 }
