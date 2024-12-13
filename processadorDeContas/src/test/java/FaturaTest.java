@@ -80,21 +80,14 @@ public class FaturaTest {
     }
 
     @Test
-    public void boletoDataValorInvalido() {
-        Fatura fatura = new Fatura("Ana Silva", 10000.0, "2025-01-01");
-        Pagamento pagamento = new Pagamento(0.0, "2025-01-31", "BOLETO");
+    public void boletoValorAtrasadoInvalido() {
+        Fatura fatura = new Fatura("Ana Silva", 50.0, "2025-01-01");
+        Pagamento pagamento = new Pagamento(50.0, "2025-01-02", "BOLETO");
 
         fatura.adicionarPagamento(pagamento);
 
-        assertEquals(0.0, fatura.getSomaPagamentos(), 0.0001);
-
-        assertEquals("PENDENTE", fatura.getEstado());
+        assertEquals(55.0, fatura.getSomaPagamentos(), 0.0001);
     }
-
-
-
-
-
 }
 
 
