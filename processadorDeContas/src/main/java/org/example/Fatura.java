@@ -26,8 +26,15 @@ public class Fatura {
                 return;
             }
             //boleto com atraso
-            if(pagamento.getData().isAfter(data)){
-                pagamento.setValor(pagamento.getValor()*1.10);
+            if (pagamento.getData().isAfter(this.data)) {
+                pagamento.setValor(pagamento.getValor() * 1.10);
+            }
+        }
+        if (pagamento.getTipo().equals("CARTAO")) {
+            //15 dias do cartao
+            java.time.LocalDate dataLimiteCartao = this.data.minusDays(15);
+            if (pagamento.getData().isBefore(dataLimiteCartao)) {
+                return;
             }
         }
         pagamentos.add(pagamento);
@@ -60,5 +67,7 @@ public class Fatura {
         return pagamentos;
     }
 }
+
+
 
 
