@@ -44,4 +44,35 @@ public class FaturaTest {
 
         assertEquals("PAGA", fatura.getEstado());
     }
+
+    @Test
+    public void testeFaturaNaoPaga() {
+        Fatura fatura = new Fatura("Ana Silva", 1000.0, "2025-01-01");
+        Pagamento pagamento1 = new Pagamento(5.0, "2024-12-31", "BOLETO");
+        Pagamento pagamento2 = new Pagamento(500.0, "2024-12-31", "BOLETO");
+
+        fatura.adicionarPagamento(pagamento1);
+        fatura.adicionarPagamento(pagamento2);
+
+        assertEquals("PENDENTE", fatura.getEstado());
+    }
+
+    @Test
+    public void boletoValor5kInvalido() {
+        Fatura fatura = new Fatura("Ana Silva", 10000.0, "2025-01-01");
+        Pagamento pagamento = new Pagamento(10000.0, "2024-12-31", "BOLETO");
+
+        fatura.adicionarPagamento(pagamentoInvalido);
+        assertEquals(0.0, fatura.getSomaPagamentos(), 0.0001);
+
+        assertEquals("PENDENTE", fatura.getEstado());
+    }
 }
+
+
+
+
+
+
+
+

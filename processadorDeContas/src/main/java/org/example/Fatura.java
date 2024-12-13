@@ -41,9 +41,9 @@ public class Fatura {
     }
 
     public String getEstado() {
+        if (getSomaPagamentos() >= getValor())
+            estado = "PAGA";
         return estado;
-
-
     }
 
     public List<Pagamento> getPagamentos() {
