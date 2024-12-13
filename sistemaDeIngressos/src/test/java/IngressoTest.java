@@ -1,6 +1,9 @@
-import org.junit.jupiter.api.Test;
 
-import main.java.org.example.Ingresso;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+
+import org.example.Ingresso;
+import org.junit.jupiter.api.Test;
 
 public class IngressoTest {
 
