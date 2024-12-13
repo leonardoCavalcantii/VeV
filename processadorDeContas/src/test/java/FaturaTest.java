@@ -90,13 +90,23 @@ public class FaturaTest {
     }
 
     @Test
-    public void testaCartao(){
+    public void testaCartaoDataCorreta() {
         Fatura fatura = new Fatura("Ana Silva", 50.0, "2025-01-01");
-        Pagamento pagamento = new Pagamento(50.0, "2024-12-20", "CARTAO");
+        Pagamento pagamento = new Pagamento(50.0, "2024-12-17", "CARTAO");
 
         fatura.adicionarPagamento(pagamento);
 
         assertEquals(1, fatura.getPagamentos().size());
+    }
+
+    @Test
+    public void testaCartaoForaDaDataCorreta() {
+        Fatura fatura = new Fatura("Ana Silva", 50.0, "2025-01-01");
+        Pagamento pagamento = new Pagamento(50.0, "2024-12-16", "CARTAO");
+
+        fatura.adicionarPagamento(pagamento);
+
+        assertEquals(0, fatura.getPagamentos().size());
     }
 }
 
