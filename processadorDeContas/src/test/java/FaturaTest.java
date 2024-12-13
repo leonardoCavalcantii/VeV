@@ -88,6 +88,16 @@ public class FaturaTest {
 
         assertEquals(55.0, fatura.getSomaPagamentos(), 0.0001);
     }
+
+    @Test
+    public void testaCartao(){
+        Fatura fatura = new Fatura("Ana Silva", 50.0, "2025-01-01");
+        Pagamento pagamento = new Pagamento(50.0, "2024-12-20", "CARTAO");
+
+        fatura.adicionarPagamento(pagamento);
+
+        assertEquals(1, fatura.getPagamentos().size());
+    }
 }
 
 
