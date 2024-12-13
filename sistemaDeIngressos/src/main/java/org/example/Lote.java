@@ -26,11 +26,14 @@ public class Lote {
             throw new IllegalArgumentException("Tipo de ingresso ou preço inválido");
         }
 
-        if ("MEIA_ENTRADA".equals(tipo)) {
-            return preco; //Não tem desconto para meia
-        }
-        else {
-            return preco - (preco * desconto); //aplica desconto para vip e normal
+        switch (tipo) {
+            case "MEIA_ENTRADA":
+                return preco / 2;
+            case "VIP":
+            case "NORMAL":
+                return preco - (preco * desconto);
+            default:
+                throw new IllegalArgumentException("Tipo de ingresso inválido: " + tipo);
         }
     }
 }
