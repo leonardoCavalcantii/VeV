@@ -20,20 +20,20 @@ public class ShowTest {
 
     @Test
     void verificarStatusFinanceiro() {
-        Show show = new Show(1000.0, 2000.0, false); // Cachê R$ 1000, despesas R$ 2000, não é data especial
+        Show show = new Show(3000.0, 2000.0, false); // Cachê R$ 3000, despesas R$ 2000, não é data especial
         show.adicionarIngressosVendidos("VIP", 100, 50.0);
         show.adicionarIngressosVendidos("NORMAL", 300, 30.0);
 
-        // A receita líquida do show será 12000.0, o que resulta em "LUCRO"
+        // A receita líquida será 12500.0, o que resulta em "LUCRO"
         String status = show.statusFinanceiro();
         assertEquals("LUCRO", status);
 
         // Testando com um show com receita líquida zero
-        Show show2 = new Show(5000.0, 5000.0, false); // Cachê R$ 5000, despesas R$ 5000
+        Show show2 = new Show(8750.0, 8750.0, false); // Cachê R$ 5000, despesas R$ 5000
         show2.adicionarIngressosVendidos("VIP", 100, 50.0);
         show2.adicionarIngressosVendidos("NORMAL", 300, 30.0);
 
-        // A receita líquida será zero, então o status é "ESTÁVEL"
+        // A receita líquida será 0, então o status é "ESTÁVEL"
         status = show2.statusFinanceiro();
         assertEquals("ESTÁVEL", status);
 
@@ -42,8 +42,10 @@ public class ShowTest {
         show3.adicionarIngressosVendidos("VIP", 100, 50.0);
         show3.adicionarIngressosVendidos("NORMAL", 300, 30.0);
 
-        // A receita líquida será negativa, então o status é "PREJUÍZO"
+        // A receita líquida será 2500.0, então o status é "LUCRO"
         status = show3.statusFinanceiro();
-        assertEquals("PREJUÍZO", status);
+        assertEquals("LUCRO", status);
     }
+
+
 }

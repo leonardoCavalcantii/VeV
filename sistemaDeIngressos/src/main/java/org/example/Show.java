@@ -13,30 +13,49 @@ public class Show {
         this.totalIngressosVendidos = 0.0;
     }
 
-    // Método para adicionar ingressos vendidos, considerando descontos
     public void adicionarIngressosVendidos(String tipo, int quantidade, double preco) {
         double precoFinal = preco;
 
-        // Calculando preço de VIP e MEIA_ENTRADA antes do desconto
+        // Definir o preço base para VIP ou MEIA_ENTRADA
         if ("VIP".equals(tipo)) {
             precoFinal = preco * 2; // O preço do ingresso VIP é o dobro do NORMAL
         } else if ("MEIA_ENTRADA".equals(tipo)) {
             precoFinal = preco / 2; // O preço do ingresso MEIA_ENTRADA é a metade do NORMAL
         }
 
-        // Aplicando o desconto de 15% para VIP e MEIA_ENTRADA
+        // Aplicar o desconto de 15% apenas para VIP e MEIA_ENTRADA
         if ("VIP".equals(tipo) || "MEIA_ENTRADA".equals(tipo)) {
-            precoFinal -= precoFinal * 0.15; // Desconto de 15%
+            precoFinal -= precoFinal * 0.15; // Desconto de 15% para VIP e MEIA_ENTRADA
         }
 
-        totalIngressosVendidos += quantidade * precoFinal; // Total de ingressos vendidos
+        // Adicionar o valor total de ingressos vendidos ao total
+        totalIngressosVendidos += quantidade * precoFinal;
     }
 
-    // Método para calcular a receita líquida
+
     public double calcularReceitaLiquida() {
         if (dataEspecial) {
             despesasInfraestrutura *= 1.15; // 15% a mais para data especial
         }
-        return totalIngressosVendidos - despesasInfraestrutura - cache; // Receita líquida //400-500-1000
+
+        System.out.println("Total Ingressos Vendidos: " + totalIngressosVendidos);
+        System.out.println("Despesas Infraestrutura: " + despesasInfraestrutura);
+        System.out.println("Cache: " + cache);
+
+        double receitaLiquida = totalIngressosVendidos - despesasInfraestrutura - cache;
+        System.out.println("Receita Líquida: " + receitaLiquida);
+
+        return receitaLiquida;
+    }
+
+        public String statusFinanceiro() {
+        double receitaLiquida = calcularReceitaLiquida();
+        if (receitaLiquida > 0) {
+            return "LUCRO";
+        } else if (receitaLiquida == 0) {
+            return "ESTÁVEL";
+        } else {
+            return "PREJUÍZO";
+        }
     }
 }
