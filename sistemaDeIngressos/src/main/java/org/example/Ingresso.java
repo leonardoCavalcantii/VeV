@@ -27,6 +27,8 @@ public class Ingresso {
     public void marcarComoVendido() {
         if(!"VENDIDO".equals(this.status)) {
             this.status = "VENDIDO";
+        } else {
+            throw new RuntimeException("já está como vendido");
         }
     }
 }
