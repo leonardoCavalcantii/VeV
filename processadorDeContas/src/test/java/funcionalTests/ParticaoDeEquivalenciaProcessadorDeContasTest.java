@@ -1,3 +1,5 @@
+package funcionalTests;
+
 import org.example.Fatura;
 import org.example.Pagamento;
 import org.junit.jupiter.api.Test;
@@ -6,10 +8,7 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
-public class FaturaTest {
-
-    //toda fatura por defalt eh iniciada como PENDENTE.
-    //adicao de novos testes para checar funcionamento correto da criacao da fatura!
+public class ParticaoDeEquivalenciaProcessadorDeContasTest {
     @Test
     public void testCriarFtura() {
         Fatura fatura = new Fatura("Joao Silva", 1500.0, "2020-02-17");
@@ -109,11 +108,4 @@ public class FaturaTest {
         assertEquals(0, fatura.getPagamentos().size());
     }
 }
-
-
-
-
-
-
-
 
