@@ -11,12 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ParticaoDeEquivalenciaProcessadorDeContasTest {
 
-    @BeforeEach
-    public void criaFatura(){
-        Fatura fatura1= new Fatura("Joao Silva", 1500.0, "2020-02-17");
-    }
-
-
 
     @Test
     @DisplayName("fatura criada")
