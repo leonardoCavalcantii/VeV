@@ -4,7 +4,8 @@ import org.example.Fatura;
 import org.example.Pagamento;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ValoresLimiteProcessadorDeContasTest {
     //testando valores limites de uma operação de pagar fatura.

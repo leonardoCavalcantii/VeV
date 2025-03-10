@@ -2,14 +2,25 @@ package funcionalTests;
 
 import org.example.Fatura;
 import org.example.Pagamento;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ParticaoDeEquivalenciaProcessadorDeContasTest {
+
+    @BeforeEach
+    public void criaFatura(){
+        Fatura fatura1= new Fatura("Joao Silva", 1500.0, "2020-02-17");
+    }
+
+
+
     @Test
+    @DisplayName("fatura criada")
+    @Order(2)
     public void testCriarFtura() {
         Fatura fatura = new Fatura("Joao Silva", 1500.0, "2020-02-17");
         assertEquals("Joao Silva", fatura.getCliente());
@@ -20,6 +31,8 @@ public class ParticaoDeEquivalenciaProcessadorDeContasTest {
     }
 
     @Test
+    @DisplayName("Adiciona pagamento")
+    @Order(1)
     public void testeAdicionarPagamento() {
         Fatura fatura = new Fatura("Joao Silva", 1100.0, "2025-01-01");
         Pagamento pagamento1 = new Pagamento(500.0, "2024-12-31", "BOLETO");
